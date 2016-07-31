@@ -19,45 +19,65 @@ public class Main {
 
                 Enum.PlasticCards card = Enum.PlasticCards.valueOf(kindOfCard);
 
-                String data = data(in);
-                int numberOfNumeral = data.length();
+                String data;
+                int numberOfNumeral;
 
                 switch (card) {
                     case BankCard:
+                        data = data(in);
+                        numberOfNumeral = data.length();
+
                         if (numberOfNumeral == 16) {
-                            // algorithm
+                            int result = LuhnAlgorithm.getSum(data);
+                            System.out.println("Control sum of numerals of your card: " + result);
                         } else {
                             System.out.println("Number of numerals of BankCard must be 16!");
                         }
                         break;
 
                     case DiscountCard:
-                        if (numberOfNumeral == 15) {
-                            // algorithm
+                        data = data(in);
+                        numberOfNumeral = data.length();
+
+                        if (numberOfNumeral == 13 || numberOfNumeral == 15 || numberOfNumeral == 16) {
+                            int result = LuhnAlgorithm.getSum(data);
+                            System.out.println("Control sum of numerals of your card: " + result);
                         } else {
-                            System.out.println("Number of numerals of DiscountCard must be 15!");
+                            System.out.println("You enter wrong number of card! Try again");
                         }
                         break;
 
                     case IMEINumber:
+                        data = data(in);
+                        numberOfNumeral = data.length();
+
                         if (numberOfNumeral == 15) {
-                            // algorithm
+                            int result = LuhnAlgorithm.getSum(data);
+                            System.out.println("Control sum of numerals of your card: " + result);
                         } else {
                             System.out.println("Number of numerals of IMEINumber must be 15!");
                         }
                         break;
 
                     case SocialSecurityCode:
+                        data = data(in);
+                        numberOfNumeral = data.length();
+
                         if (numberOfNumeral == 9) {
-                            // algorithm
+                            int result = LuhnAlgorithm.getSum(data);
+                            System.out.println("Control sum of numerals of your card: " + result);
                         } else {
                             System.out.println("Number of numerals of SocialSecurityCode must be 9!");
                         }
                         break;
 
                     case NumberOfRailwayCarriage:
+                        data = data(in);
+                        numberOfNumeral = data.length();
+
                         if (numberOfNumeral == 8) {
-                            // algorithm
+                            int result = LuhnAlgorithm.getSum(data);
+                            System.out.println("Control sum of numerals of your card: " + result);
                         } else {
                             System.out.println("Number of numerals of NumberOfRailwayCarriage must be 8!");
                         }
@@ -67,6 +87,7 @@ public class Main {
                         System.exit(1);
                         break;
                 }
+                System.out.println("If you need to calculate more, please, select kind of card or enter OUT");
 
             } catch (IllegalArgumentException ex) {
                 System.out.println("[Error] You enter wrong information! Please, choose kind of card!");
@@ -76,10 +97,8 @@ public class Main {
         }
     }
 
-    public static String data(Scanner in) {
+    private static String data(Scanner in) {
         System.out.println("Enter number of your card: ");
-        String numberOfCard = in.next();
-
-        return numberOfCard;
+        return in.next();
     }
 }
