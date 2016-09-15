@@ -6,16 +6,14 @@ import java.util.Scanner;
 public class UnevenNumber {
     public static void main(String[] args) {
         System.out.println("Hello! This program finds first uneven number of integer in an array!\n " +
-                "If you need to do this, please, choose ARRAY or enter OUT: ");
+                "If you need to do this please choose ARRAY or enter OUT: ");
 
         Scanner in = new Scanner(System.in);
         String s = in.next();
 
         try {
             if (s.equals("ARRAY")) {
-                UnevenNumber unevenNumber = new UnevenNumber();
-                unevenNumber.unevenNumber();
-
+                unevenNumber();
             } else if (s.equals("OUT")) {
                 System.exit(1);
             }
