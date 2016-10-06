@@ -2,6 +2,7 @@ package ua.goit.practice.firstpractice.Base36;
 
 public class Base36 {
     private final static String symbolsForBase36 = "0123456789abcdefghijklmnopqrstuvwxyz";
+    private final static String symbolsForBase36Uppercase = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     public static String summingBase36(String symbols) {
         int numberOfSymbols = 36;
@@ -12,7 +13,7 @@ public class Base36 {
         for (String symbol : split) {
             for (char symbolChar : symbol.toCharArray()) {
                 for (int i = 0; i < numberOfSymbols; i++) {
-                    if (symbolChar == symbolsForBase36.charAt(i)) {
+                    if (symbolChar == symbolsForBase36.charAt(i) || symbolChar == symbolsForBase36Uppercase.charAt(i)) {
                         count +=i;
                         break;
                     }
@@ -26,7 +27,7 @@ public class Base36 {
     }
 
     public static void main(String[] args) {
-        String symbolsForSum = "z, 1";
+        String symbolsForSum = "Z, 1";
         System.out.println("Result after summing " + symbolsForSum + ": " + summingBase36(symbolsForSum));
     }
 }
